@@ -4,7 +4,7 @@ export default class Validator {
   }
 
   static validateUsername(name) {
-    const check = name.search(/[^\w-]|[\d]{3}|^[\d_-]|[\d_-]$/);
+    const check = name.search(/[^\w-]|[\d]{4}|^[\d_-]|[\d_-]$/);
     if (check !== -1) {
       throw new Error('Incorrect username');
     }

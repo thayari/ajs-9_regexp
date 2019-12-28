@@ -5,28 +5,26 @@ test('username is correct', () => {
   expect(validate.name).toBe('abc-d_45ef');
 });
 
-const cases = ['1qwerty', 'qw1236ert', 'qwert1', '-qwert', 'dfgh%jk', 'qwer_'];
-function result(name) {
-  const validate = new Validator(name);
-}
-
 describe('wrong username', () => {
+  function result(name) {
+    const validate = new Validator(name);
+  }
   test('1', () => {
-    expect(() => { result(cases[0]); }).toThrow('Incorrect username');
+    expect(() => { result('1qwerty'); }).toThrow('Incorrect username');
   });
   test('2', () => {
-    expect(() => { result(cases[1]); }).toThrow('Incorrect username');
+    expect(() => { result('qw1236ert'); }).toThrow('Incorrect username');
   });
   test('3', () => {
-    expect(() => { result(cases[2]); }).toThrow('Incorrect username');
+    expect(() => { result('qwert1'); }).toThrow('Incorrect username');
   });
   test('4', () => {
-    expect(() => { result(cases[3]); }).toThrow('Incorrect username');
+    expect(() => { result('-qwert'); }).toThrow('Incorrect username');
   });
   test('5', () => {
-    expect(() => { result(cases[4]); }).toThrow('Incorrect username');
+    expect(() => { result('dfgh%jk'); }).toThrow('Incorrect username');
   });
   test('6', () => {
-    expect(() => { result(cases[5]); }).toThrow('Incorrect username');
+    expect(() => { result('qwer_'); }).toThrow('Incorrect username');
   });
 });
